@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(212, 187, 235);
+}
+
+.Game-name {
+  display: flex;
+  justify-content: center;
+  font-family: cursive;
+  padding-top: 12px;
+  font-size: 32px;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  padding-top: 30px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: auto;
+  justify-content: center;
+}
+
+.container div {
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgb(19, 17, 17);
+  border: 2px solid plum;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  ;
+}
+
+.container div img {
+  width: 264px;
+  height: 264px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.button-box {
+  margin-left: 64px;
+  display: inline-grid;
+  gap: 8px;
+  height: 30px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.button-box button {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-family: cursive;
+  border-radius: 8px;
+  border: 2px solid plum;
+  cursor: pointer;
+}
+
+.button-box button:hover {
+  background-color: rgb(134, 100, 165);
+  color: white;
+}
+
+.score-restart-box {
+  margin-top: 100px;
+
+}
+
+p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.restart-button {
+  background: rgb(32, 201, 32);
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+#loader {
+  display: none;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: blue;
+  margin-top: 30px;
+}

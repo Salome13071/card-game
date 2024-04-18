@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <section>
+
+
+        <h1 class="Game-name"> Memory Card Game </h1>
+
+        <div id="loader">
+            <span>Game loading...</span>
+        </div>
+
+        <div class="main-container">
+
+            <div class="button-box">
+                <div class="game-box">
+                    <button onclick="game(12)">Game with 12 </button>
+                    <button onclick="game(24)">Game with 24 </button>
+                </div>
+                <div class="score-restart-box">
+                    <p>Score: <span class="score"></span></p>
+                    <button onclick="restart()" class="restart-button"> restart</button>
+                </div>
+
+            </div>
+
+            <div class="container"></div>
+
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+    <script> game(12)</script>
+</body>
+
+</html>
