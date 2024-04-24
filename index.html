@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <section>
+    <section style="margin: 0 32px;">
 
 
         <h1 class="Game-name"> Memory Card Game </h1>
@@ -33,9 +33,18 @@
 
             </div>
 
-            <div class="container"></div>
+            <div id="card-container"></div>
 
         </div>
+
+        <div id="popupContainer" class="popup">
+            <div class="popup-content">
+                <span class="close" id="closePopup" onclick="closePopup()">X</span>
+                <p>გილოცავთ, თქვენ დაასრულეთ თამაში! </p>
+                <img src="./images/winner-tfg.gif" alt="winner">
+            </div>
+        </div>
+
     </section>
 
 

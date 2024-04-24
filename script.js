@@ -1,4 +1,5 @@
-let container = document.querySelector('.container');
+let container = document.getElementById('card-container');
+let popup = document.getElementById("popupContainer");
 
 const imgs = [
     './images/1.jpg',
@@ -62,6 +63,8 @@ function game(cardCount) {
     randomCardsArr = [];
     firstClickedCardId = null;
     fillTempImgsArray(cardCount, imgs)
+    container.setAttribute('class', 'container card-game' + cardCount)
+    console.log(container)
     container.innerHTML = '';
     for (let i = 0; i < cardCount; i++) {
         const cardId = "card_" + i;
@@ -133,54 +136,67 @@ function showAndCompareCards(cardId, cardImgId) {
                 addNewImage(cardImgId, questionMarkImg, cardDiv);
                 disableClick = false;
                 flipCard(cardId);
-            }, 3000)
+            }, 2000)
 
         }
         firstClickedCardId = null;
     }
 }
 
-    function flipCard(cardId) {
-        const cardElement = document.getElementById(cardId);
-        cardElement.classList.toggle('flipped');
-    }
-
-    function disableClickFnc(e) {
-        if (disableClick) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
+function flipCard(cardId) {
+    const cardElement = document.getElementById(cardId);
+    cardElement.classList.toggle('flipped');
 }
 
-function resetBoard(){
+function disableClickFnc(e) {
+    if (disableClick) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+}
+
+function resetBoard() {
     firstClickedCardId = null;
     cardDiv = null;
     disableClick = false;
-    
+
 }
 
-function restart(){
+function restart() {
     resetBoard();
     randomCardsArr = [];
     scoreCounter(true)
     container.innerHTML = '';
     document.getElementById('loader').style.display = "block";
-    //change loader display none to display block;
     setTimeout(() => {
-        //change loader div display block to display none;
         document.getElementById('loader').style.display = "none";
         game(startedGameType);
-    },1000)
-    
+    }, 1000)
+
 }
 
 function scoreCounter(reset = false) {
-    if(reset === true) {
+    if (reset === true) {
         score = 0;
     } else {
-        score ++;
+        score++;
     }
     document.querySelector(".score").textContent = score;
+    if ((startedGameType === 12 && score === 6) || (startedGameType === 24 && score === 12)) {
+        popup.style.display = 'block'
+    }
+}
+
+function closePopup() {
+    popup.style.display = 'none'
+    game(startedGameType)
+}
+
+window.onclick = function (event) {
+    if (event.target == popup) {
+        popup.style.display = "none";
+        game(startedGameType)
+    }
 }
 
 document.addEventListener("click", disableClickFnc, true);
